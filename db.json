@@ -1,13 +1,6 @@
 {
   "passengers": [
     {
-      "fullname": "Steve Jobs",
-      "id": 1,
-      "checkedIn": true,
-      "baggage": "none",
-      "checkInDate": 1490742000000
-    },
-    {
       "id": 2,
       "fullname": "Rose",
       "checkedIn": false,
