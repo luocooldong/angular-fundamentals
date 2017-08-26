@@ -36,7 +36,9 @@ export class PassengerDashboardComponent implements OnInit {
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.passengers = this.passengerService.getPassengers();
+    this.passengerService
+    .getPassengers()
+    .subscribe((data: Passenger[]) => this.passengers = data);
   }
 
   handleEdit(event: Passenger){
