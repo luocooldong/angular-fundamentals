@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnChanges, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Passenger } from './../../models/passenger.interface';
 
 @Component({
@@ -37,7 +37,7 @@ import { Passenger } from './../../models/passenger.interface';
        </div>
     `
 })
-export class PassengerDetailComponent {
+export class PassengerDetailComponent implements OnChanges, OnInit {
 
     @Input()
     detail: Passenger;
@@ -52,8 +52,21 @@ export class PassengerDetailComponent {
 
     constructor(){}
 
+    ngOnChanges(changes) {
+      //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+      //Add '${implements OnChanges}' to the class.
+      if (changes.detail) {
+        this.detail = Object.assign({}, changes.detail.currentValue);
+      }
+      console.log('ngOnChanges');
+    }
+  
+    ngOnInit() {
+      console.log('ngOnInit');
+    }
+
     onNameChange(value: string){
-      console.log('value :', value );
+      // console.log('value :', value );
       this.detail.fullname = value;
     }
 
