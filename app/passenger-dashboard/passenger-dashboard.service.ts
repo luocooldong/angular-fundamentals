@@ -1,9 +1,15 @@
-export class PassengerDashboardService{
-    constructor(){
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
+import { Passenger } from './models/passenger.interface';
+
+@Injectable()
+export class PassengerDashboardService{
+    constructor(private http: Http ){
+       console.log(http);
     }
 
-    getPassengers(){
+    getPassengers(): Passenger[]{
         return [{
             id: 1,
             fullname: 'Stephen',
