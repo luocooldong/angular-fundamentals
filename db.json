@@ -1,11 +1,11 @@
 {
   "passengers": [
     {
+      "fullname": "Steve Jobs",
       "id": 1,
-      "fullname": "Steve",
       "checkedIn": true,
-      "checkInDate": 1490742000000,
-      "baggage": "none"
+      "baggage": "none",
+      "checkInDate": 1490742000000
     },
     {
       "id": 2,
@@ -15,11 +15,11 @@
       "baggage": ""
     },
     {
+      "fullname": "Yudong geng",
       "id": 3,
-      "fullname": "Todd",
       "checkedIn": true,
-      "checkInDate": 1488412800000,
-      "baggage": ""
+      "baggage": "none",
+      "checkInDate": 1490742000000
     },
     {
       "id": 4,

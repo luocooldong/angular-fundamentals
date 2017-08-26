@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 
 import { Baggage } from '../../models/baggage.interface';
 import { Passenger } from './../../models/passenger.interface';
@@ -7,7 +7,7 @@ import { Passenger } from './../../models/passenger.interface';
     selector: 'passenger-form',
     styleUrls: ['passenger-form.component.scss'],
     template: `
-       <form #form="ngForm" novalidate>
+       <form (submit)="handleSumit(form.value, form.valid)"  #form="ngForm" novalidate>
            {{ detail | json }}
           <div> 
             Passenger name:
@@ -117,6 +117,9 @@ export class PassengerFormComponent {
     @Input()
     detail: Passenger;
 
+    @Output()
+    update: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+
     baggage: Baggage[] = [{
         key: 'none',
         value: 'No baggage'
@@ -132,12 +135,16 @@ export class PassengerFormComponent {
     {
         key: 'hand-hold',
         value: 'Hand and Hold baggage'
-    }
-
-];
+    }];
 
     toggleCheckIn(checkedIn: Boolean){
         this.detail.checkInDate = Date.now();
+    }
+
+    handleSumit(passenger: Passenger, isValid: boolean){
+        if(isValid){
+            this.update.emit(passenger);
+        }
     }
 
 
