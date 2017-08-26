@@ -44,6 +44,16 @@ import { Component, Input } from '@angular/core';
             </label>
           </div>
 
+          <div>
+                <label>
+                    <input type="checkbox"
+                        name="checkedIn"
+                        [ngModel]="detail?.checkedIn"
+                        (ngModelChange)="toggleCheckIn($event)" >
+                </label>
+          
+          </div>
+
           <div *ngIf="form.value.checkedIn">
             Check in date:
             <input 
