@@ -102,6 +102,10 @@ import { Passenger } from './../../models/passenger.interface';
              </select>
           </div>
 
+          <button type="submit" [disabled]="form.invalid">
+              Update Passenger
+          </button>
+
 
           <div>{{ form.value | json }}</div>
           <div>Valid: {{ form.valid | json }}</div>
